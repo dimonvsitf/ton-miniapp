@@ -2,13 +2,17 @@ const TON_WALLET_ADDRESS = "UQA5RoNe7YwTmCaFZpLIkj_NeK01mhz-IaRgZcVq9Ul9IhKH"; /
 
 // Initialize TON Connect
 const tonConnectUI = new TONConnectUI({
-    manifestUrl: "https://yourdomain.com/tonconnect-manifest.json" // Replace with actual hosted URL
+    manifestUrl: "https://dimonvsitf.github.io/ton-miniapp/tonconnect-manifest.json" // actual hosted URL
 });
 
 // Handle Wallet Connection
 document.getElementById("connectWallet").addEventListener("click", async () => {
-    await tonConnectUI.connectWallet();
-    document.getElementById("payBtn").style.display = "block";
+    try {
+        await tonConnectUI.connectWallet();
+        document.getElementById("payBtn").style.display = "block"; // Show Pay button on success
+    } catch (error) {
+        alert("Wallet connection failed: " + error.message);
+    }
 });
 
 // Handle Payment
@@ -30,3 +34,4 @@ document.getElementById("payBtn").addEventListener("click", async () => {
         alert("Payment Failed: " + error.message);
     }
 });
+
