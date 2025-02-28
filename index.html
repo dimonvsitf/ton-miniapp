@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Service Provider</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Open Your Business Bank Account</h1>
+        <p>We help businesses set up corporate bank accounts easily.</p>
+        <button id="startBtn">Start Application</button>
+    </div>
+    <div id="formContainer" style="display: none;">
+        <h2>Business Information</h2>
+    
+        <div id="step1">
+            <label>Can you describe your business?</label>
+            <textarea id="businessDescription" placeholder="Describe your products, customers, suppliers"></textarea>
+            <button onclick="nextStep(2)">Next</button>
+        </div>
+    
+        <div id="step2" style="display: none;">
+            <label>What countries do you send/receive money from?</label>
+            <textarea id="countries" placeholder="List countries and estimated volumes"></textarea>
+            <button onclick="prevStep(1)">Back</button>
+            <button onclick="nextStep(3)">Next</button>
+        </div>
+    
+        <div id="step3" style="display: none;">
+            <label>Describe the ownership structure of your company</label>
+            <textarea id="ownership" placeholder="List shareholders and ownership percentages"></textarea>
+            <button onclick="prevStep(2)">Back</button>
+            <button id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
